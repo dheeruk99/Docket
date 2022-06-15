@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <Title>TODO App</Title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    </head>
+    <body>
+        <div id="container">
+            <h1>TODO App</h1>
+        <form action="/add" method="post">
+
+            <div id="Description">
+                <label for="Description">DESCRIPTION</label>
+                <br>
+                <input type="text" id="desc" name="Description"placeholder="What do you need to do?" required>
+            </div>
+
+        <span id="Category-Due-Date">
+        <span id="Category-container">
+
+            <label for="Category">CATEGORY</label><br>
+            <select id="Category" name="Category">
+                <option value="Choose a category">Choose a category</option>
+                <option name="Category" value="Personal">Personal</option>
+                <option name="Category" value="Work">Work</option>
+                <option name="Category" value="School">School</option>
+                <option name="Category" value="Cleaning">Cleaning</option>
+                <option name="Category" value="Other">Other</option>
+            </select>
+
+        </span>
+
+            <span id="date">
+                <label for="date">DUE DATE</label>
+                <br>
+                <input type="date" id="date" name="Date">
+            </span>
+
+        </span>
+            <button id="add-button" class="button" type="submit"><i class="fa-solid fa-plus"></i> ADD TASK</button>
+        </form>
+    </div>
+
+    <div id="display">
+        <form action="/delete" method="post">
+            <button id="delete-button" class="button" type="submit"><i class="fa-solid fa-trash-can"></i> DELETE TASKS</button>
+            <br><br>
+           <% for(let i of todo_list){%>
+            <div id="display-data">
+
+                <div>
+
+                    <div class="Description-display" >
+                        <input type="checkbox" name="Description" value="<%=i.id%>">
+                        <label for="Description"><%=i.Description%></label>
+                    </div>
+
+                    
+                    <span id ="date-display">
+                        <i class="fas fa-calendar-alt"></i>   
+                        <span id="date-font"><%=i.Date%></span>
+                    </span>
+                </div>
+
+                    <div id="Category-display">
+                        <%=i.Category%>
+                    </div>
+
+
+            </div>
+
+            
+             <%}%>
+        </form>
+    </span>
+
+        
+    </body>
+
+</html>
