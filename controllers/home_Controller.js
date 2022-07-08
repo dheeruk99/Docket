@@ -1,3 +1,5 @@
+//Controller for homepage
+
 const Todo = require("../models/Todo")
 
 module.exports.home=(req,res)=>{

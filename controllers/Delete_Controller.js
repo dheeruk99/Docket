@@ -1,14 +1,22 @@
-const { on } = require("../models/Todo");
+//Controller for Deleting a Task
+
 const Todo = require("../models/Todo")
 
 module.exports.delete=(req,res)=>{
     let id = req.body.Description;
-        Todo.findByIdAndDelete(id,(err)=>{
+    Object.keys(req.body).forEach(function(key){
+        Todo.findByIdAndDelete(key,function(err){
             if(err)
             {
-            console.log(`Error in Deletion${err}`);
+                console.log("Error");
+                return;
             }
         })
-        res.redirect('back');
-            
-    }
+        
+    })
+    return res.redirect('back');
+}
+
+
+
+    
